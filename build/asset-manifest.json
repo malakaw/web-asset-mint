@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c24dedb8.css",
+    "main.js": "/static/js/main.996c6c07.js",
+    "static/js/787.eb14398a.chunk.js": "/static/js/787.eb14398a.chunk.js",
+    "static/media/icons-20.eot": "/static/media/icons-20.cde033c5d3f24283f757.eot",
+    "static/media/icons-20.woff": "/static/media/icons-20.1ef633d3a28d0986f63e.woff",
+    "static/media/icons-20.ttf": "/static/media/icons-20.57b3e708b232fdcb64f9.ttf",
+    "static/media/icons-16.eot": "/static/media/icons-16.2368f88a078780d80145.eot",
+    "static/media/icons-16.woff": "/static/media/icons-16.1645f50fb7f7c109f64e.woff",
+    "static/media/icons-16.ttf": "/static/media/icons-16.13933033991f62d6bb64.ttf",
+    "static/media/sunwukong.jpeg": "/static/media/sunwukong.bfd2ec07194839cf2728.jpeg",
+    "static/media/flint.svg": "/static/media/flint.6a609caa87a1143146a2e24ef76d05ac.svg",
+    "static/media/eternl.svg": "/static/media/eternl.dcca5298cf9cb6c9c236095579adf4b5.svg",
+    "static/media/nami.svg": "/static/media/nami.fb60f63cb309f3cb3405e21549a98a7f.svg",
+    "index.html": "/index.html",
+    "main.c24dedb8.css.map": "/static/css/main.c24dedb8.css.map",
+    "main.996c6c07.js.map": "/static/js/main.996c6c07.js.map",
+    "787.eb14398a.chunk.js.map": "/static/js/787.eb14398a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c24dedb8.css",
+    "static/js/main.996c6c07.js"
+  ]
+}
