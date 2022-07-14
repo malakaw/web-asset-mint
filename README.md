@@ -1,81 +1,74 @@
-# cardano asset tools 
+# web asset mint
 
 ### 功能介绍
-主要是解决nami/eternl钱包转移token和nft 多个地址的情况下，没法一笔交易中转账多个钱包地址问题。我们可以提供一对多地址发送token/nft,
-最大情况下减少交易费用。
+#  
 
-in main
+项目主要是用react来实现，功能是在页面调用nami/eternl/flint插件（推荐chrome）, 得到用户的钱包地址后，用户再输入一些mint必须的参数，例如name ,ipfs, 数量等信息，提交到后台，就是项目[api-asset-mint](https://github.com/malakaw/web-asset-mint.git).
 
- 
+项目启动的时候记如果有内存不够用的异常，建议使用一下命令
 
-# Cardano DApp Wallet Connector
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-### React JS demo
-
-In the project directory, you can run: `npm start run`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+export NODE_OPTIONS=--max-old-space-size=8192
+```
 
 
-### What is this useful for:
-You can use this code as a starting point for the following:
-- you are building a DApp and want to connect to the user's wallet (Nami, CCVault, or Flint)
-- you want to read the balance, the UTXOs and the available tokens at the user's wallet
-- you want the user to interact with your DApp
-- you want the user to send transactions to the Cardano blockchain using their wallet
-- you want the user to lock ADA and Tokens at a Plutus Script
-- you want the user to redeem ADA and Tokens that have been locked at the Plutus Script
 
-This boilerplate code was written in javascript and React Js, so caters to the devs who already use this framework.
+第一次启动项目前记得
 
-### How does it work:
-- It uses the wallet connector standard CIP30 and the cardano-serialization-lib
-- the CIP30 standard has been implemented by Nami, CCvault and Flint
-- It uses the cardano-serializatioon-lib to build transactions in the javascript front-end, then sign them and send the transactrons with the user's wallet
-- you can clone the git repo and then `npm instal`l and `npm start run` to start a local session
+```
+npm install
+```
 
-### What does it do:
-- send ADA to an address
-- send Tokens (NFTs) to an address
-- lock ADA at a Plutus Script
-- lock Tokens (NFTs) at a Plutus Script
-- redeem ADA from a Plutus Script
-- redeem Tokens (NFTs) from a Plutus Script
 
-### Things to keep in mind:
-- The cardano-serialization-lib can be used to create transacations in the front end using javascript. It has the potential to simplify some of the plutus off chain code. As an example for the use case above only the On Chain Plutus smart contract was used while all of the Off Chain was done with the cardano-serialization-lib. This greatly reduced the amount of code that needs to be written in Haskell and avoid needing to interact with Plutus Application Backend
-- The use cases use the "alwayssucceeds.plutus" Plutus Smart contract that always succeeds.
-- The Plutus Script Address is derived from plutus script itself, so the contract has the same address for everyone: "addr_test1wpnlxv2xv9a9ucvnvzqakwepzl9ltx7jzgm53av2e9ncv4sysemm8"
-- The cardano-serialization-lib is constantly being updated and the release from v9 to v10 has breaking changes. This repo uses v10 of the cardano-serialization-lib
 
-### Troubleshooting
-- If you get an error that starts with `FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory ...` then run this `export NODE_OPTIONS="--max-old-space-size=8192"` before runnig `npm start`
-- If you get an error that starts with ` Not enough ADA leftover to include non-ADA assets in a change address ...` then first make sure that you have enough ADA in your wallet and then try changing the "strategy" number in this part of the code `txBuilder.add_inputs_from(txUnspentOutputs, 1)` which determines how it selects available UTXOs from your wallet. The options are `1` for LargestFirst, `2` for RandomImprove, `3` for LargestFirstMultiAsset and `4` for RandomImproveMultiAsset 
-- Requires Nodejs version 14 or higher
+#### 截图介绍
 
-### Live Demo
 
-A demo of the DApp is running here:
-https://dynamicstrategies.io/wconnector
 
-### Useful Links
+首页
 
-These links serve as example of how to use the cardano-serialization-lib and where you can find code snippets
+![index](./imgs/index.png)
 
-Implements the CIP30: https://cips.cardano.org/cips/cip30/
 
-Uses the cardano-serialization-lib:
 
-Link1: https://docs.cardano.org/cardano-components/cardano-serialization-lib
 
-Link2: https://github.com/Emurgo/cardano-serialization-lib
 
-NFT implementation: https://github.com/MartifyLabs/martify.frontend
+操作步骤介绍
 
-Nami implementation: https://github.com/Berry-Pool/nami-wallet
+![step](./imgs/step.png)
 
-Wallet interface: https://github.com/HarmonicPool/cardano-wallet-interface
-# cardano_asset_kit
+最后一步检查是否支付代码还没有补上，目前为了测试所有提交都可以生产nft
+
+选择钱包
+
+![choicewallet](./imgs/choicewallet.png)
+
+
+
+钱包信息
+
+![walletinfo](./imgs/walletinfo.png)
+
+
+
+mint表单提交字段
+
+![form](./imgs/form.png)
+
+确认后，准备提交
+
+![commit_1](./imgs/commit_1.png)
+
+
+
+提交
+
+![commit_2](./imgs/commit_2.png)
+
+
+
+成功后显示tx-hash
+
+![56749535](./imgs/56749535.png)
+
+ok,完成。
